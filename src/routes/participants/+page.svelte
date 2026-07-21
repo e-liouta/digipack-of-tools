@@ -79,11 +79,11 @@
 				},
 				{
 					name: "Hanan Isse",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/hanan.jpg"
 				},
 				{
 					name: "Jesper Rød",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/jesper.jpg"
 				}
 			]
 		},
