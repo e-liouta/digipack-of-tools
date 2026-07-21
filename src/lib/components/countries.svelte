@@ -3,48 +3,56 @@
 		{
 			country: "Bulgaria",
 			organisation: "Academy of Success",
+			flag: "🇧🇬",
 			x: 365,
 			y: 260
 		},
 		{
 			country: "Denmark",
 			organisation: "Youth Spectrum",
+			flag: "🇩🇰",
 			x: 275,
 			y: 75
 		},
 		{
 			country: "Greece",
 			organisation: "ICSD",
+			flag: "🇬🇷",
 			x: 380,
 			y: 405
 		},
 		{
 			country: "North Macedonia",
 			organisation: "New Rays",
+			flag: "🇲🇰",
 			x: 330,
 			y: 315
 		},
 		{
 			country: "Serbia",
 			organisation: "Youth Workers Alliance Vranje",
+			flag: "🇷🇸",
 			x: 315,
 			y: 220
 		},
 		{
 			country: "Poland",
 			organisation: "Just Do It",
+			flag: "🇵🇱",
 			x: 350,
 			y: 135
 		},
 		{
 			country: "Türkiye",
 			organisation: "Youth Season",
+			flag: "🇹🇷",
 			x: 470,
 			y: 355
 		},
 		{
 			country: "Portugal",
 			organisation: "HAWK STARS",
+			flag: "🇵🇹",
 			x: 125,
 			y: 285
 		}
@@ -136,12 +144,12 @@
 				</p>
 
 				<a class="participants-link" href="/participants">
-						<span>Meet everyone</span>
+					<span>Meet everyone</span>
 
-						<svg viewBox="0 0 24 24" aria-hidden="true">
-							<path d="M5 12H19M13 6L19 12L13 18" />
-						</svg>
-					</a>
+					<svg viewBox="0 0 24 24" aria-hidden="true">
+						<path d="M5 12H19M13 6L19 12L13 18" />
+					</svg>
+				</a>
 
 				<ul>
 					{#each countries as item}
@@ -158,7 +166,13 @@
 								{/if}
 							</div>
 
-							<span class="status" aria-label="Connected"></span>
+							<span
+								class="country-flag"
+								role="img"
+								aria-label={`${item.country} flag`}
+							>
+								{item.flag}
+							</span>
 						</li>
 					{/each}
 				</ul>
@@ -180,7 +194,11 @@
 		background-color: var(--forest);
 		background-image:
 			linear-gradient(rgba(72, 200, 203, 0.03) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(72, 200, 203, 0.03) 1px, transparent 1px);
+			linear-gradient(
+				90deg,
+				rgba(72, 200, 203, 0.03) 1px,
+				transparent 1px
+			);
 		background-size: 56px 56px;
 	}
 
@@ -234,24 +252,24 @@
 		gap: clamp(55px, 8vw, 120px);
 		align-items: stretch;
 		margin-top: clamp(70px, 8vw, 110px);
-}
+	}
 
-.network {
-	position: relative;
-	display: flex;
-	min-height: 550px;
-	padding: 30px;
-	border: 1px solid rgba(72, 200, 203, 0.2);
-	border-radius: 7px;
-	background: rgba(8, 45, 39, 0.45);
-}
+	.network {
+		position: relative;
+		display: flex;
+		min-height: 550px;
+		padding: 30px;
+		border: 1px solid rgba(72, 200, 203, 0.2);
+		border-radius: 7px;
+		background: rgba(8, 45, 39, 0.45);
+	}
 
-.network svg {
-	display: block;
-	width: 100%;
-	height: 100%;
-	min-height: 480px;
-}
+	.network svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-height: 480px;
+	}
 
 	.network line {
 		stroke: rgba(72, 200, 203, 0.28);
@@ -310,8 +328,9 @@
 		border-bottom: 1px solid rgba(243, 240, 231, 0.12);
 	}
 
-	.partners li div {
+	.partners li > div {
 		display: flex;
+		min-width: 0;
 		flex-direction: column;
 		gap: 7px;
 	}
@@ -329,6 +348,7 @@
 		font-family: Georgia, serif;
 		font-size: 1.35rem;
 		font-weight: 400;
+		line-height: 1.2;
 	}
 
 	.partners strong.missing {
@@ -339,13 +359,28 @@
 		text-transform: uppercase;
 	}
 
-	.status {
-		width: 9px;
-		height: 9px;
-		border: 4px solid rgba(72, 200, 203, 0.16);
+	.country-flag {
+		display: grid;
+		flex: 0 0 auto;
+		width: 48px;
+		height: 48px;
+		border: 1px solid rgba(72, 200, 203, 0.22);
 		border-radius: 50%;
-		background: var(--aqua);
-		box-sizing: content-box;
+		background: rgba(72, 200, 203, 0.07);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		font-size: 1.65rem;
+		line-height: 1;
+		place-items: center;
+		transition:
+			transform 220ms ease,
+			border-color 220ms ease,
+			background 220ms ease;
+	}
+
+	.partners li:hover .country-flag {
+		transform: translateY(-2px) scale(1.06);
+		border-color: rgba(72, 200, 203, 0.55);
+		background: rgba(72, 200, 203, 0.13);
 	}
 
 	.participants-link {
@@ -368,16 +403,16 @@
 			border-color 200ms ease,
 			color 200ms ease,
 			transform 200ms ease;
-}
+	}
 
-.participants-link:hover {
+	.participants-link:hover {
+		transform: translateY(-2px);
 		border-color: var(--aqua);
 		background: var(--aqua);
 		color: var(--forest);
-		transform: translateY(-2px);
-}
+	}
 
-.participants-link svg {
+	.participants-link svg {
 		width: 19px;
 		height: 19px;
 		fill: none;
@@ -386,16 +421,16 @@
 		stroke-linecap: round;
 		stroke-linejoin: round;
 		transition: transform 200ms ease;
-}
+	}
 
-.participants-link:hover svg {
+	.participants-link:hover svg {
 		transform: translateX(5px);
-}
+	}
 
-.participants-link:focus-visible {
+	.participants-link:focus-visible {
 		outline: 2px solid var(--aqua);
 		outline-offset: 4px;
-}
+	}
 
 	@media (max-width: 950px) {
 		.countries__content {
@@ -435,6 +470,12 @@
 
 		.partners strong {
 			font-size: 1.15rem;
+		}
+
+		.country-flag {
+			width: 42px;
+			height: 42px;
+			font-size: 1.4rem;
 		}
 	}
 </style>

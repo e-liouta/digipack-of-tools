@@ -26,6 +26,29 @@
 			description: "Bring the knowledge back to local communities."
 		}
 	];
+
+	const digitalTools = [
+		{
+			name: "ChatGPT",
+			shortName: "GPT",
+			className: "tool--chatgpt"
+		},
+		{
+			name: "Canva",
+			shortName: "C",
+			className: "tool--canva"
+		},
+		{
+			name: "NotebookLM",
+			shortName: "NLM",
+			className: "tool--notebook"
+		},
+		{
+			name: "Claude",
+			shortName: "AI",
+			className: "tool--claude"
+		}
+	];
 </script>
 
 <section class="journey" id="journey">
@@ -41,8 +64,25 @@
 		</h2>
 
 		<div class="journey__visual" aria-hidden="true">
-			<svg viewBox="0 0 1200 190" fill="none" preserveAspectRatio="none">
+			<div class="digital-tools">
+				{#each digitalTools as tool}
+					<div class={`digital-tool ${tool.className}`}>
+						<div class="digital-tool__icon">
+							{tool.shortName}
+						</div>
+
+						<span>{tool.name}</span>
+					</div>
+				{/each}
+			</div>
+
+			<svg
+				viewBox="0 0 1200 190"
+				fill="none"
+				preserveAspectRatio="none"
+			>
 				<path
+					class="river-path"
 					d="
 						M20 128
 						C110 178 205 86 310 98
@@ -63,14 +103,23 @@
 
 		<div class="journey__steps">
 			{#each journeySteps as step, index}
-				<article class="journey-step">
+				<article
+					class="journey-step"
+					style={`--step-index: ${index}`}
+				>
 					<p class="journey-step__label">
-						<span>{String(index + 1).padStart(2, "0")}</span>
+						<span>
+							{String(index + 1).padStart(2, "0")}
+						</span>
+
 						{step.stage}
 					</p>
 
 					<h3>{step.title}</h3>
-					<p class="journey-step__description">{step.description}</p>
+
+					<p class="journey-step__description">
+						{step.description}
+					</p>
 				</article>
 			{/each}
 		</div>
@@ -101,6 +150,7 @@
 		align-items: center;
 		gap: 14px;
 		margin-bottom: 34px;
+		animation: reveal-up 700ms ease both;
 	}
 
 	.section-label > span {
@@ -127,6 +177,7 @@
 		font-weight: 400;
 		letter-spacing: -0.05em;
 		line-height: 0.95;
+		animation: reveal-up 800ms ease 100ms both;
 	}
 
 	h2 em {
@@ -135,28 +186,148 @@
 	}
 
 	.journey__visual {
+		position: relative;
 		width: 100%;
 		margin-top: clamp(105px, 10vw, 155px);
 	}
 
-	svg {
+	.journey__visual svg {
 		display: block;
 		width: 100%;
 		height: 190px;
 		overflow: visible;
 	}
 
-	path {
+	.river-path {
 		stroke: var(--aqua);
 		stroke-width: 2;
+		stroke-dasharray: 1600;
+		stroke-dashoffset: 1600;
 		vector-effect: non-scaling-stroke;
+		animation: draw-river 2.5s ease 300ms forwards;
 	}
 
-	circle {
+	.journey__visual circle {
+		transform: scale(0);
+		transform-box: fill-box;
+		transform-origin: center;
 		fill: var(--aqua);
 		stroke: var(--cream);
 		stroke-width: 7;
 		vector-effect: non-scaling-stroke;
+		animation: show-dot 500ms ease forwards;
+	}
+
+	.journey__visual circle:nth-of-type(1) {
+		animation-delay: 500ms;
+	}
+
+	.journey__visual circle:nth-of-type(2) {
+		animation-delay: 850ms;
+	}
+
+	.journey__visual circle:nth-of-type(3) {
+		animation-delay: 1.15s;
+	}
+
+	.journey__visual circle:nth-of-type(4) {
+		animation-delay: 1.45s;
+	}
+
+	.journey__visual circle:nth-of-type(5) {
+		animation-delay: 1.8s;
+	}
+
+	.digital-tools {
+		position: absolute;
+		z-index: 2;
+		inset: 0;
+		pointer-events: none;
+	}
+
+	.digital-tool {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: 8px;
+		opacity: 0;
+		animation:
+			show-tool 700ms ease forwards,
+			float-tool 5s ease-in-out infinite;
+	}
+
+	.digital-tool__icon {
+		display: grid;
+		width: 56px;
+		height: 56px;
+		border: 1px solid rgba(18, 63, 55, 0.14);
+		border-radius: 17px;
+		background: rgba(255, 255, 255, 0.85);
+		box-shadow: 0 12px 30px rgba(18, 63, 55, 0.1);
+		color: var(--forest);
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		place-items: center;
+		backdrop-filter: blur(8px);
+	}
+
+	.digital-tool > span {
+		padding: 4px 8px;
+		border-radius: 999px;
+		background: rgba(243, 240, 231, 0.9);
+		color: rgba(18, 63, 55, 0.72);
+		font-family: var(--font-mono);
+		font-size: 0.56rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.tool--chatgpt {
+		top: 42px;
+		left: 9%;
+		transform: rotate(-6deg);
+		animation-delay: 500ms, 1.2s;
+	}
+
+	.tool--canva {
+		top: -34px;
+		left: 31%;
+		transform: rotate(5deg);
+		animation-delay: 750ms, 1.45s;
+	}
+
+	.tool--notebook {
+		top: 50px;
+		left: 57%;
+		transform: rotate(-4deg);
+		animation-delay: 1s, 1.7s;
+	}
+
+	.tool--claude {
+		top: -42px;
+		left: 82%;
+		transform: rotate(7deg);
+		animation-delay: 1.25s, 1.95s;
+	}
+
+	.tool--chatgpt .digital-tool__icon {
+		border-radius: 50%;
+	}
+
+	.tool--canva .digital-tool__icon {
+		border-radius: 20px 10px 20px 10px;
+	}
+
+	.tool--notebook .digital-tool__icon {
+		border-radius: 10px;
+	}
+
+	.tool--claude .digital-tool__icon {
+		border-radius: 50% 50% 45% 55%;
 	}
 
 	.journey__steps {
@@ -168,6 +339,9 @@
 
 	.journey-step {
 		max-width: 235px;
+		opacity: 0;
+		animation: reveal-up 700ms ease forwards;
+		animation-delay: calc(700ms + var(--step-index) * 120ms);
 	}
 
 	.journey-step__label {
@@ -200,6 +374,63 @@
 		color: var(--grey);
 		font-size: 0.92rem;
 		line-height: 1.55;
+	}
+
+	@keyframes draw-river {
+		from {
+			stroke-dashoffset: 1600;
+		}
+
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	@keyframes show-dot {
+		from {
+			transform: scale(0);
+			opacity: 0;
+		}
+
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+	@keyframes show-tool {
+		from {
+			translate: 0 18px;
+			opacity: 0;
+		}
+
+		to {
+			translate: 0 0;
+			opacity: 1;
+		}
+	}
+
+	@keyframes float-tool {
+		0%,
+		100% {
+			margin-top: 0;
+		}
+
+		50% {
+			margin-top: -10px;
+		}
+	}
+
+	@keyframes reveal-up {
+		from {
+			transform: translateY(25px);
+			opacity: 0;
+		}
+
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
 	}
 
 	@media (max-width: 850px) {
@@ -262,6 +493,28 @@
 
 		h2 em {
 			display: block;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.section-label,
+		h2,
+		.river-path,
+		.journey__visual circle,
+		.digital-tool,
+		.journey-step {
+			animation: none;
+			transform: none;
+			translate: none;
+			opacity: 1;
+		}
+
+		.river-path {
+			stroke-dashoffset: 0;
+		}
+
+		.journey__visual circle {
+			transform: scale(1);
 		}
 	}
 </style>
