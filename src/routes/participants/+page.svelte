@@ -136,7 +136,7 @@
 				{
 					name: "Rosica Mojsova",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/rosica.jpg"
 				}
 			]
 		},
