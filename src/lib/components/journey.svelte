@@ -30,23 +30,28 @@
 	const digitalTools = [
 		{
 			name: "ChatGPT",
-			shortName: "GPT",
+			icon: "/images/tools/chatgpt.png",
 			className: "tool--chatgpt"
 		},
 		{
 			name: "Canva",
-			shortName: "C",
+			icon: "/images/tools/canva.png",
 			className: "tool--canva"
 		},
 		{
 			name: "NotebookLM",
-			shortName: "NLM",
+			icon: "/images/tools/notebookLm.jpg",
 			className: "tool--notebook"
 		},
 		{
 			name: "Claude",
-			shortName: "AI",
+			icon: "/images/tools/claude.png",
 			className: "tool--claude"
+		},
+		{
+			name: "WhatsApp",
+			icon: "/images/tools/whatsapp.png",
+			className: "tool--whatsapp"
 		}
 	];
 </script>
@@ -68,7 +73,7 @@
 				{#each digitalTools as tool}
 					<div class={`digital-tool ${tool.className}`}>
 						<div class="digital-tool__icon">
-							{tool.shortName}
+							<img src={tool.icon} alt="" />
 						</div>
 
 						<span>{tool.name}</span>
@@ -259,19 +264,22 @@
 
 	.digital-tool__icon {
 		display: grid;
-		width: 56px;
-		height: 56px;
+		width: 62px;
+		height: 62px;
+		padding: 12px;
 		border: 1px solid rgba(18, 63, 55, 0.14);
-		border-radius: 17px;
-		background: rgba(255, 255, 255, 0.85);
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.88);
 		box-shadow: 0 12px 30px rgba(18, 63, 55, 0.1);
-		color: var(--forest);
-		font-family: var(--font-mono);
-		font-size: 0.75rem;
-		font-weight: 700;
-		letter-spacing: -0.02em;
 		place-items: center;
 		backdrop-filter: blur(8px);
+	}
+
+	.digital-tool__icon img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 
 	.digital-tool > span {
@@ -288,46 +296,37 @@
 
 	.tool--chatgpt {
 		top: 42px;
-		left: 9%;
+		left: 7%;
 		transform: rotate(-6deg);
 		animation-delay: 500ms, 1.2s;
 	}
 
 	.tool--canva {
 		top: -34px;
-		left: 31%;
+		left: 28%;
 		transform: rotate(5deg);
 		animation-delay: 750ms, 1.45s;
 	}
 
 	.tool--notebook {
-		top: 50px;
-		left: 57%;
+		top: 52px;
+		left: 49%;
 		transform: rotate(-4deg);
 		animation-delay: 1s, 1.7s;
 	}
 
 	.tool--claude {
 		top: -42px;
-		left: 82%;
+		left: 70%;
 		transform: rotate(7deg);
 		animation-delay: 1.25s, 1.95s;
 	}
 
-	.tool--chatgpt .digital-tool__icon {
-		border-radius: 50%;
-	}
-
-	.tool--canva .digital-tool__icon {
-		border-radius: 20px 10px 20px 10px;
-	}
-
-	.tool--notebook .digital-tool__icon {
-		border-radius: 10px;
-	}
-
-	.tool--claude .digital-tool__icon {
-		border-radius: 50% 50% 45% 55%;
+	.tool--whatsapp {
+		top: 48px;
+		left: 91%;
+		transform: rotate(-5deg);
+		animation-delay: 1.5s, 2.2s;
 	}
 
 	.journey__steps {
@@ -430,6 +429,34 @@
 		to {
 			transform: translateY(0);
 			opacity: 1;
+		}
+	}
+
+	@media (max-width: 1100px) {
+		.digital-tool__icon {
+			width: 56px;
+			height: 56px;
+			padding: 10px;
+		}
+
+		.tool--chatgpt {
+			left: 6%;
+		}
+
+		.tool--canva {
+			left: 27%;
+		}
+
+		.tool--notebook {
+			left: 48%;
+		}
+
+		.tool--claude {
+			left: 69%;
+		}
+
+		.tool--whatsapp {
+			left: 89%;
 		}
 	}
 
