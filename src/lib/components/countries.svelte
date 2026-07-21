@@ -135,6 +135,14 @@
 					Different backgrounds. Shared knowledge. Stronger youth work.
 				</p>
 
+				<a class="participants-link" href="/participants">
+						<span>Meet everyone</span>
+
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M5 12H19M13 6L19 12L13 18" />
+						</svg>
+					</a>
+
 				<ul>
 					{#each countries as item}
 						<li>
@@ -339,6 +347,55 @@
 		background: var(--aqua);
 		box-sizing: content-box;
 	}
+
+	.participants-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		margin-bottom: 40px;
+		padding: 14px 20px;
+		border: 1px solid rgba(72, 200, 203, 0.45);
+		border-radius: 999px;
+		background: rgba(72, 200, 203, 0.08);
+		color: var(--cream);
+		font-family: monospace;
+		font-size: 0.68rem;
+		letter-spacing: 0.15em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition:
+			background 200ms ease,
+			border-color 200ms ease,
+			color 200ms ease,
+			transform 200ms ease;
+}
+
+.participants-link:hover {
+		border-color: var(--aqua);
+		background: var(--aqua);
+		color: var(--forest);
+		transform: translateY(-2px);
+}
+
+.participants-link svg {
+		width: 19px;
+		height: 19px;
+		fill: none;
+		stroke: currentColor;
+		stroke-width: 1.7;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		transition: transform 200ms ease;
+}
+
+.participants-link:hover svg {
+		transform: translateX(5px);
+}
+
+.participants-link:focus-visible {
+		outline: 2px solid var(--aqua);
+		outline-offset: 4px;
+}
 
 	@media (max-width: 950px) {
 		.countries__content {
