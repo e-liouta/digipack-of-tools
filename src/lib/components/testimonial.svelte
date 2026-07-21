@@ -40,50 +40,56 @@
 			</p>
 		</div>
 
-		<div class="testimonial__video">
-			<video
-				bind:this={videoElement}
-				src="/video/testimonial.mp4"
-				preload="metadata"
-				playsinline
-				controls
-				onplay={handlePlay}
-				onpause={handlePause}
-				onended={handlePause}
-			>
-				<track
-					kind="captions"
-					srclang="en"
-					label="English"
-				/>
+		<div class="testimonial__content">
+			<div class="testimonial__video">
+				<video
+					bind:this={videoElement}
+					src="/videos/digipack-testimonial.MP4"
+					preload="metadata"
+					playsinline
+					controls
+					onplay={handlePlay}
+					onpause={handlePause}
+					onended={handlePause}
+				>
+					<track
+						kind="captions"
+						srclang="en"
+						label="English"
+					/>
 
-				Your browser does not support the video element.
-			</video>
+					Your browser does not support the video element.
+				</video>
 
-			<button
-				class:playing={isPlaying}
-				class="video-button"
-				type="button"
-				aria-label={isPlaying
-					? "Pause testimonial video"
-					: "Play testimonial video"}
-				onclick={toggleVideo}
-			>
-				{#if isPlaying}
-					<svg viewBox="0 0 24 24" aria-hidden="true">
-						<rect x="7" y="5" width="3.5" height="14" rx="1"></rect>
-						<rect x="13.5" y="5" width="3.5" height="14" rx="1"></rect>
-					</svg>
-				{:else}
-					<svg viewBox="0 0 24 24" aria-hidden="true">
-						<path d="M8 5.5L18 12L8 18.5V5.5Z"></path>
-					</svg>
-				{/if}
-			</button>
+				<button
+					class:playing={isPlaying}
+					class="video-button"
+					type="button"
+					aria-label={isPlaying ? "Pause testimonial video" : "Play testimonial video"}
+					onclick={toggleVideo}
+				>
+					{#if isPlaying}
+						<svg
+							viewBox="0 0 24 24"
+							aria-hidden="true"
+						>
+							<rect x="7" y="5" width="3.5" height="14" rx="1"></rect>
+							<rect x="13.5" y="5" width="3.5" height="14" rx="1"></rect>
+						</svg>
+					{:else}
+						<svg
+							viewBox="0 0 24 24"
+							aria-hidden="true"
+						>
+							<path d="M8 5.5L18 12L8 18.5V5.5Z"></path>
+						</svg>
+					{/if}
+				</button>
 
-			<div class="video-tag">
-				<span></span>
-				Participants' stories
+				<div class="video-tag">
+					<span></span>
+					Participant story
+				</div>
 			</div>
 		</div>
 	</div>
@@ -96,6 +102,7 @@
 		--deep-forest: #0b302a;
 		--aqua: #48c8cb;
 		--blue: #82bcc5;
+		--grey: #5b6561;
 
 		position: relative;
 		padding: clamp(100px, 12vw, 170px) 32px;
@@ -186,22 +193,27 @@
 		line-height: 1.7;
 	}
 
+	.testimonial__content {
+		display: flex;
+		justify-content: center;
+		margin-top: clamp(70px, 8vw, 110px);
+	}
+
 	.testimonial__video {
 		position: relative;
-		width: 100%;
-		margin-top: clamp(70px, 8vw, 110px);
+		min-height: 560px;
 		overflow: hidden;
 		border: 1px solid rgba(72, 200, 203, 0.2);
 		border-radius: 8px;
 		background: var(--deep-forest);
-		box-shadow: 0 35px 90px rgba(0, 0, 0, 0.22);
-		aspect-ratio: 16 / 9;
+		box-shadow: 0 35px 90px rgba(0, 0, 0, 0.2);
 	}
 
 	.testimonial__video video {
 		display: block;
 		width: 100%;
 		height: 100%;
+		min-height: 560px;
 		background: var(--deep-forest);
 		object-fit: cover;
 	}
@@ -211,8 +223,8 @@
 		top: 50%;
 		left: 50%;
 		display: grid;
-		width: 92px;
-		height: 92px;
+		width: 86px;
+		height: 86px;
 		padding: 0;
 		transform: translate(-50%, -50%);
 		border: 1px solid rgba(255, 255, 255, 0.35);
@@ -246,8 +258,8 @@
 	}
 
 	.video-button svg {
-		width: 32px;
-		height: 32px;
+		width: 30px;
+		height: 30px;
 		fill: currentColor;
 	}
 
@@ -279,13 +291,21 @@
 	}
 
 	@media (max-width: 1050px) {
-		.testimonial__heading {
+		.testimonial__heading,
+		.testimonial__content {
 			grid-template-columns: 1fr;
 		}
 
 		.testimonial__heading > p {
 			max-width: 600px;
 		}
+
+		.testimonial__video,
+		.testimonial__video video {
+			min-height: 500px;
+		}
+
+
 	}
 
 	@media (max-width: 650px) {
@@ -297,8 +317,9 @@
 			font-size: clamp(3.1rem, 14vw, 4.5rem);
 		}
 
-		.testimonial__video {
-			aspect-ratio: 4 / 5;
+		.testimonial__video,
+		.testimonial__video video {
+			min-height: 420px;
 		}
 
 		.video-button {
