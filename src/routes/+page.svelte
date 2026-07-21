@@ -8,6 +8,7 @@
 	import Countries from "$lib/components/countries.svelte";
 	import Footer from "$lib/components/footer.svelte";
 	import Navigation from "$lib/components/navigation.svelte";
+	import Testimonial from "$lib/components/testimonial.svelte"
 </script>
 <Navigation />
 <Hero />
@@ -17,4 +18,5 @@
 <Journey />
 <Gallery />
 <Countries />
+<Testimonial />
 <Footer />

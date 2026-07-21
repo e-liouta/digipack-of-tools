@@ -29,6 +29,8 @@
 			<a href="#topics" onclick={closeMenu}>Topics</a>
 			<a href="#activities" onclick={closeMenu}>Activities</a>
 			<a href="#gallery" onclick={closeMenu}>Gallery</a>
+			<a href="#testimonial" onclick={closeMenu}>Testimonials</a>
+
 		</nav>
 	</div>
 </header>
