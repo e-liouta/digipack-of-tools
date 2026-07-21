@@ -40,9 +40,7 @@
 							alt="Academy of Success"
 						/>
 					</div>
-</div>
-
-
+				</div>
 			</div>
 		</div>
 
@@ -51,8 +49,16 @@
 				© 2026 DigiPack · Erasmus+ KA1 Mobility of Youth Workers
 			</p>
 
-			<p>42°25′N · 25°37′E</p>
 		</div>
+		<div class="footer__disclaimer">
+			<p>
+				Funded by the European Union. Views and opinions expressed are
+				however those of the author(s) only and do not necessarily reflect
+				those of the European Union or the European Education and Culture
+				Executive Agency (EACEA). Neither the European Union nor EACEA can be
+				held responsible for them.
+			</p>
+</div>
 	</div>
 </footer>
 
@@ -180,6 +186,21 @@
 		line-height: 1.6;
 		text-transform: uppercase;
 	}
+
+	.footer__disclaimer {
+		margin-top: 32px;
+		padding-top: 24px;
+		border-top: 1px solid rgba(243, 240, 231, 0.08);
+}
+
+.footer__disclaimer p {
+		max-width: 900px;
+		margin: 0 auto;
+		color: rgba(243, 240, 231, 0.58);
+		font-size: 0.78rem;
+		line-height: 1.7;
+		text-align: center;
+}
 
 	@media (max-width: 850px) {
 		.footer__main {
