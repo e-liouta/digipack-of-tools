@@ -43,11 +43,11 @@
 				{
 					name: "Elisaveta Koleva",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/eli.jpg"
 				},
 				{
 					name: "Ivelina Bronke",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/ivelina.jpg"
 				},
 				{
 					name: "Kristian Stefanov",
@@ -56,7 +56,7 @@
 				},
 				{
 					name: "Milen Stefanov",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/milen.jpg"
 				},
 				{
 					name: "Monika Kamenova",
@@ -64,7 +64,7 @@
 				},
 				{
 					name: "Zhivko Zhelev",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/zhivko.jpg"
 				}
 			]
 		},
@@ -99,12 +99,12 @@
 				{
 					name: "Eleni Patatoukaki",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/elena.jpg"
 				},
 				{
 					name: "Rafail Georgios Makridis",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/rafail.jpg"
 				},
 				{
 					name: "Sotirios Kletsas",
@@ -121,17 +121,17 @@
 				{
 					name: "Filip Grozdanovski",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/filip.jpg"
 				},
 				{
 					name: "Martin Mojanovski",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/martyn.jpg"
 				},
 				{
 					name: "Milcho Duli",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/milcho.jpg"
 				},
 				{
 					name: "Rosica Mojsova",
@@ -157,7 +157,7 @@
 				{
 					name: "Marta Andrzejewska",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/marta.jpg"
 				}
 			]
 		},
@@ -179,7 +179,7 @@
 				{
 					name: "Claudia Monteiro",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/claudia.jpg"
 				}
 			]
 		},
@@ -190,19 +190,19 @@
 			participants: [
 				{
 					name: "Anja Adamović",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/anja.jpg"
 				},
 				{
 					name: "Luka Nikolic",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/luka.jpg"
 				},
 				{
 					name: "Marko Savić",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/marko.jpg"
 				},
 				{
 					name: "Pavle Pavlović",
-					image: "/images/participants/default.jpg.webp"
+					image: "/images/participants/pavle.jpg"
 				}
 			]
 		},
@@ -227,7 +227,7 @@
 				{
 					name: "Yağız Ömer Soylak",
 					image:
-						"/images/participants/default.jpg.webp"
+						"/images/participants/yagiz.jpg"
 				}
 			]
 		}

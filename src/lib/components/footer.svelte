@@ -133,8 +133,7 @@
 		color: var(--aqua);
 	}
 
-	.partner-label,
-	.placeholder-note {
+	.partner-label {
 		margin: 0;
 		color: var(--sage);
 		font-family: monospace;
@@ -221,9 +220,6 @@
 			grid-template-columns: 1fr;
 		}
 
-		.logo-placeholder {
-			min-height: 115px;
-		}
 
 		.footer__bottom {
 			align-items: flex-start;
