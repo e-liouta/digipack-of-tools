@@ -29,8 +29,10 @@
 		</div>
 
 		<div class="actions">
-			<a class="primary-button" href="#about">
-				Explore the project
+			<a class="primary-button" href="/files/DigiPack_Handbook.pdf"
+				target="_blank"
+				rel="noopener noreferrer">
+				Open Handbook
 				<span aria-hidden="true">●</span>
 			</a>
 
